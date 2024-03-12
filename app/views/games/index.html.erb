@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Poker game</h1>
+
+<div id="games">
+  
+	<% @results.each.with_index do |result, i| %>
+	  <div>
+		  <div>
+				Round #<%= i + 1 %> winner <b><%= result[:winner].to_s.titleize %></b>
+			</div>
+			
+		  <div>Player One's score <%= result[:player_one][:score] %></div>
+		  <div>
+			  <ul>
+				 <li> Cards: <%= result[:player_one][:cards].inspect %></li>
+				 <li> Hands: <%= result[:player_one][:hands].map(&:humanize) %></li>
+			  </ul>
+		  </div>
+			
+		  <div>Player Two's score <%= result[:player_two][:score] %></div>
+		  <div>
+			  <ul>
+				 <li> Cards: <%= result[:player_two][:cards].inspect %></li>
+				 <li> Hands: <%= result[:player_two][:hands].map(&:humanize) %></li>
+			  </ul>
+		  </div>
+	  </div>
+		
+		<hr/>
+		
+	<% end %>
+	
+</div>
